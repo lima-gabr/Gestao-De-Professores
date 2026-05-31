@@ -1,0 +1,118 @@
+.container-lista {
+    padding: 20px;
+}
+
+.btn-incluir {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #5b9bd5;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.card-professor {
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-info h3 {
+    margin: 0 0 5px 0;
+}
+
+.card-info p {
+    margin: 0;
+}
+
+.card-acoes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.tag-desativado {
+    background-color: #ed7d31;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.grupo-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btn-alterar {
+    background-color: #5b9bd5;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.btn-excluir {
+    background-color: #c00000;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+/* Fundo escuro continua igual */
+.modal-fundo-escuro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-caixa {
+    background-color: white;
+    padding: 20px 40px;
+    border: 2px solid black; 
+    text-align: center;
+    min-width: 300px;
+}
+
+.modal-texto {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.modal-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espaço entre o SIM e o NÃO */
+}
+
+.btn-sim {
+    background-color: #5b9bd5;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 30px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.btn-nao {
+    background-color: #c00000;
+    color: white;
+    border: 1px solid black;
+    padding: 5px 30px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}

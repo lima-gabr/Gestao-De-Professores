@@ -1,0 +1,44 @@
+<div style="padding: 20px; max-width: 600px;">
+    <h2>Incluir novo professor</h2>
+
+    <form [formGroup]="professorForm" (ngSubmit)="salvar()" style="display: flex; flex-direction: column; gap: 15px;">
+
+        <div>
+            <label>Nome:</label><br>
+            <input type="text" formControlName="nome" style="width: 100%; padding: 8px;">
+            @if (professorForm.get('nome')?.invalid && professorForm.get('nome')?.touched) {
+            <small style="color: red;">O nome é obrigatório e precisa de 5 caracteres.</small>
+            }
+        </div>
+
+        <div>
+            <label>Matrícula:</label><br>
+            <input type="text" formControlName="matricula" placeholder="Ex: SNC-12345"
+                style="width: 100%; padding: 8px;">
+            @if (professorForm.get('matricula')?.invalid && professorForm.get('matricula')?.touched) {
+            <small style="color: red;">A matrícula é obrigatória</small>
+            }
+        </div>
+
+        <div>
+            <label>Disciplina:</label><br>
+            <input type="text" formControlName="disciplina" style="width: 100%; padding: 8px;">
+        </div>
+
+        <div>
+            <label>Cadastro ativado:</label>
+            <input type="radio" formControlName="isInativo" [value]="false"> Sim
+            <input type="radio" formControlName="isInativo" [value]="true"> Não
+        </div>
+
+        <div>
+            <label>Observações:</label><br>
+            <textarea formControlName="observacoes" rows="4" style="width: 100%; padding: 8px;"></textarea>
+        </div>
+
+        <button type="submit"
+            style="background-color: #5b9bd5; color: white; padding: 10px; border: none; cursor: pointer; width: 100px;">
+            Salvar
+        </button>
+    </form>
+</div>

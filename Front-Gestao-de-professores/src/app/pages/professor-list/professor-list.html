@@ -1,0 +1,50 @@
+<div class="container-lista">
+    <h2>Gerenciador de professores</h2>
+
+    <button class="btn-incluir" routerLink="/cadastrar/professor">
+        Incluir novo professor
+    </button>
+
+    @for (prof of professores; track prof.id) {
+    <div class="card-professor">
+
+        <div class="card-info">
+            <h3>{{ prof.nome }}</h3>
+            <p><strong>Matrícula:</strong> {{ prof.matricula }}</p>
+            <p><strong>Disciplina:</strong> {{ prof.disciplina }}</p>
+        </div>
+
+        <div class="card-acoes">
+
+            @if (prof.isInativo) {
+            <span class="tag-desativado">
+                DESATIVADO
+            </span>
+            }
+
+            <div class="grupo-botoes">
+                <button class="btn-alterar" routerLink="/alterar/professor/{{ prof.id }}">
+                    Alterar
+                </button>
+                <button class="btn-excluir" (click)="mostrarModal(prof.id ?? 0)">
+                    Excluir
+                </button>
+            </div>
+        </div>
+    </div>
+    } @empty {
+    <p>Nenhum professor cadastrado ainda.</p>
+    }
+
+    @if(modal){
+    <div class="modal-fundo-escuro">
+        <div class="modal-caixa">
+            <p class="modal-texto">Deseja excluir o professor ID {{professorId}}?</p>
+            <div class="modal-botoes">
+                <button class="btn-sim" (click)="confirmarAcao()">SIM</button>
+                <button class="btn-nao" (click)="fecharModal()">NÃO</button>
+            </div>
+        </div>
+    </div>
+    }
+</div>
