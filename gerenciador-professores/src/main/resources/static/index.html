@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Professores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="tela-lista" class="pagina">
+        <div class="container">
+            <h2>Gerenciador de professores</h2>
+
+            <div id="msg-sucesso" class="mensagem-sucesso" style="display:none">
+                <span id="msg-sucesso-texto"></span>
+                <button class="btn-fechar-msg" onclick="fecharMsgSucesso()">&#10005;</button>
+            </div>
+
+            <div id="lista-professores"></div>
+
+            <div class="acoes-lista">
+                <button class="btn-incluir" onclick="mostrarFormIncluir()">Incluir novo professor</button>
+            </div>
+        </div>
+
+        <footer class="rodape">
+            <p>Gabriel Lima e Débora Santos Silva / TADS 3A Noturno / 2026</p>
+            <p>Usou IA: SIM &mdash; Claude AI utilizado para HTML e CSS</p>
+        </footer>
+    </div>
+
+    <div id="tela-form" class="pagina" style="display:none">
+        <div class="container">
+            <h2>Gerenciador de professores</h2>
+
+            <div class="form-box">
+                <h3 id="form-titulo">Incluir novo professor</h3>
+
+                <div id="msg-erro" class="mensagem-erro" style="display:none"></div>
+
+                <form id="professor-form" onsubmit="salvar(event)" novalidate>
+
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome">
+                        <small id="err-nome" class="erro-campo"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" placeholder="Ex: SNC-12345">
+                        <small id="err-matricula" class="erro-campo"></small>
+                    </div>
+
+                    <div class="campo">
+                        <label for="disciplina">Disciplina</label>
+                        <input type="text" id="disciplina">
+                        <small id="err-disciplina" class="erro-campo"></small>
+                    </div>
+
+                    <div class="campo campo-radio">
+                        <span class="label-radio">Cadastro ativado</span>
+                        <div class="radio-grupo">
+                            <label><input type="radio" name="ativo" value="true" checked> Sim</label>
+                            <label><input type="radio" name="ativo" value="false"> Não</label>
+                        </div>
+                    </div>
+
+                    <div class="campo">
+                        <label for="observacoes">Observações</label>
+                        <textarea id="observacoes" rows="4"></textarea>
+                    </div>
+
+                    <div class="acoes-form">
+                        <button type="submit" class="btn-salvar">Salvar</button>
+                        <button type="button" class="btn-voltar" onclick="mostrarLista()">Voltar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <footer class="rodape">
+            <p>Gabriel Lima e Débora Santos Silva / TADS 3A Noturno / 2026</p>
+            <p>Usou IA: SIM &mdash; Claude AI utilizado para HTML e CSS</p>
+        </footer>
+    </div>
+
+    <div id="modal" class="modal-fundo" style="display:none">
+        <div class="modal-caixa">
+            <p id="modal-texto" class="modal-texto"></p>
+            <div class="modal-botoes">
+                <button class="btn-sim" onclick="confirmarExclusao()">SIM</button>
+                <button class="btn-nao" onclick="fecharModal()">NÃO</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
